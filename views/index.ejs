@@ -2,25 +2,24 @@
 <%- include ('./partials/homenavbar.ejs')%>
 <body>
     <div class="container">
+        <br>
+        <div class="jumbotron">
+            <h1 class="display-4">Bem vindo</h1>
+            <p class="lead">Esse é um simples blog do guia do programador</p>
+            <hr class="my-4">
+            <p>Descrição detalhada</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </div>
         <% articles.forEach((article) => { %>
-            <tr>
-                <td><%= article.id %></td>
-                <td><%= article.title %></td>
-                <td><%= article.slug %></td>
-                <td><%= article.category.title %></td>
-                <td>
-                    <form
-                            method="POST"
-                            action="/articles/delete"
-                            style="display: inline;"
-                            onsubmit="confirmarDelecao(event, this)"
-                    >
-                        <input type="hidden" name="id" value="<%= article.id %>">
-                        <button class="btn btn-danger">Deletar</button>
-                    </form>
-
-                </td>
-            </tr>
+            <br>
+            <div class="card">
+                <div class="card-header">
+                    <h2><%= article.title %></h2>
+                </div>
+                <div class="card-body">
+                    <a href="" class="btn btn-success">Ler artigo</a>
+                </div>
+            </div>
         <% }) %>
     </div>
 </body>
