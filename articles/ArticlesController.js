@@ -4,7 +4,7 @@ const Category = require('../categories/Category');
 const Article = require('./Article');
 const slugify = require('slugify');
 
-router.get('/articles', (req, res) => {
+router.get('/admin/articles', (req, res) => {
    res.send('Rota de artigos');
 });
 
@@ -19,18 +19,14 @@ router.post('/articles/save', (req, res) => {
    var body = req.body.body;
    var category = req.body.category;
 
-   if(title !== undefined) {
-      Category.create({
-         title,
-         body,
-         slug: slugify(title),
-         categoryId: category,
-      }).then(() => {
-         res.redirect('/admin/categories');
-      });
-   }else {
-      res.redirect('/admin/categories/new');
-   }
+   Category.create({
+      title,
+      body,
+      slug: slugify(title),
+      categoryId: category,
+   }).then(() => {
+      res.redirect('/admin/articles');
+   });
 });
 
 module.exports = router;
