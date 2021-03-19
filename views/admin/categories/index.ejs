@@ -4,6 +4,7 @@
     <div class="container">
         <hr>
         <h1>Categorias</h1>
+        <a href="/admin/categories/new" class="btn btn-success">Criar nova categoria</a>
         <hr>
         <table class="table table-bordered">
             <thead>
@@ -20,7 +21,10 @@
                         <td><%= category.id %></td>
                         <th><%= category.title %></th>
                         <th><%= category.slug %></th>
-                        <th>Ações</th>
+                        <th>
+                            <button class="btn btn-warning">Editar</button>
+                            <button class="btn btn-danger">Deletar</button>
+                        </th>
                     </tr>
                 <% }) %>
             </tbody>
