@@ -97,4 +97,37 @@ router.post('/articles/update', (req, res) => {
    });
 });
 
+router.get('/articles/page/:num', (req, res) => {
+   var page = req.params.id;
+   var offset = 0;
+
+   if(isNaN(page) || page == 1) {
+      offset = 0;
+   } else {
+      offset = parseInt(page) * 4;
+   }
+
+   Article.findAndCountAll({
+      limit: 4,
+      offset,
+   }).then((articles) => {
+      var next = true;
+
+      if((offset + 4) >= articles.count) {
+         next = false;
+      }
+
+      var result = {
+         next,
+         articles,
+      };
+
+      Category.findAll().then((categories) => {
+         res.render('admin/articles/page', { result, categories });
+      });
+   });
+});
+
+
+
 module.exports = router;
