@@ -29,13 +29,15 @@
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
-                >Artigos</a>
+                >Categorias</a>
                 <div
                     class="dropdown-menu"
                     aria-labelledby="navbarDropdownMenuLink"
                 >
                     <% categories.forEach((category) => { %>
-                        <a class="dropdown-item" href="/category/<%= category.slug %>"><%= category.title %></a>
+                        <a class="dropdown-item" href="/category/<%= category.slug %>">
+                            <%= category.title %>
+                        </a>
                     <% }) %>
                 </div>
             </li>
