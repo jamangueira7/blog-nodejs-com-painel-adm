@@ -3,23 +3,16 @@
 <body>
 <div class="container">
     <hr>
-    <div class="card">
+    <div class="card mt-4">
         <div class="card-header">
             <h2>Novo usuario</h2>
         </div>
         <div class="card-body">
-            <form method="POST" action="/articles/save">
-                <input class="form-control" type="text" name="title" placeholder="Defina o título da artigo">
-                <br>
-                <textarea
-                        id="article"
-                        class="form-control"
-                        name="body"
-                        placeholder="Escreve o artigo"
-                ></textarea>
-                <br>
-                <br>
-                <button class="btn btn-success">Cadastrar</button>
+            <form method="POST" action="/users/save">
+                <input class="form-control mt-4" type="text" name="email" placeholder="email@exemplo.com">
+                <input class="form-control mt-4" type="password" name="password" placeholder="******">
+
+                <button type="submit" class="btn btn-success btn-block mt-4">Cadastrar</button>
             </form>
         </div>
     </div>
@@ -28,12 +21,3 @@
 
 <%- include ('../../partials/footer.ejs')%>
 <script src="/tinymce/tinymce.min.js"></script>
-<script>
-    tinymce.init({
-        language: 'pt_BR',
-        selector: '#article',
-        plugins: [
-            'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
-        ]
-    })
-</script>
