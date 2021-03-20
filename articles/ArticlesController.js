@@ -110,6 +110,9 @@ router.get('/articles/page/:num', (req, res) => {
    Article.findAndCountAll({
       limit: 4,
       offset,
+      order: [
+         ['id', 'DESC']
+      ],
    }).then((articles) => {
       var next = true;
 
