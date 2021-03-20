@@ -98,13 +98,13 @@ router.post('/articles/update', (req, res) => {
 });
 
 router.get('/articles/page/:num', (req, res) => {
-   var page = req.params.id;
+   var page = req.params.num;
    var offset = 0;
 
    if(isNaN(page) || page == 1) {
       offset = 0;
    } else {
-      offset = parseInt(page) * 4;
+      offset = (parseInt(page) - 1)* 4;
    }
 
    Article.findAndCountAll({
@@ -122,9 +122,11 @@ router.get('/articles/page/:num', (req, res) => {
 
       var result = {
          next,
+         page: parseInt(page),
          articles,
       };
-
+      console.log("#######################")
+      console.log(result)
       Category.findAll().then((categories) => {
          res.render('admin/articles/page', { result, categories });
       });
