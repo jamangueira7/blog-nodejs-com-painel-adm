@@ -60,7 +60,7 @@ app.get('/:slug', (req, res) => {
     }).then((article) => {
         if(article !== undefined) {
             Category.findAll().then((categories) => {
-                res.render('article', { article, categories });
+                res.render('article', { article, categories, user: req.session.user });
             });
         } else {
             res.redirect('/');
