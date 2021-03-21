@@ -6,7 +6,7 @@
 
 <br>
 
-# Guia de peruntas e respostas
+# Guiapress - Blog de artigos
 
 ## 🚀 Tecnologias
 
@@ -24,20 +24,48 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-Projeto de um guia de perguntas e respostas.
+Projeto de um blog para postar artigos.
 
 Projeto do curso [Formação Node.js](https://www.udemy.com/course/formacao-nodejs/learn/lecture/16529728#overview).
 
+Pagina inicial sem logar. Mostra os 4 ultimos artigos publicados.
 <p align="center">
   <img alt="animation" src=".github/imagem1.PNG" width="100%">
 </p>
 
+Uma filtragem simples por categorias e paginação.
 <p align="center">
   <img alt="animation" src=".github/imagem2.PNG" width="100%">
 </p>
 
+Tela de login
 <p align="center">
   <img alt="animation" src=".github/imagem3.PNG" width="100%">
+</p>
+
+Apos o login a area administrativa para ver todos os artigos e editar ou deletar.
+<p align="center">
+  <img alt="animation" src=".github/imagem4.PNG" width="100%">
+</p>
+
+Criação de novos artigos usando a ferramenta tinemce.
+<p align="center">
+  <img alt="animation" src=".github/imagem5.PNG" width="100%">
+</p>
+
+Area administrativa para ver todos as categorais e editar ou deletar.
+<p align="center">
+  <img alt="animation" src=".github/imagem6.PNG" width="100%">
+</p>
+
+Criação de novas categorias.
+<p align="center">
+  <img alt="animation" src=".github/imagem7.PNG" width="100%">
+</p>
+
+Na pagina principal aparece os links para o administrativo quando usuario esta logado.
+<p align="center">
+  <img alt="animation" src=".github/imagem8.PNG" width="100%">
 </p>
 
 ## 🚀 Como Rodar
