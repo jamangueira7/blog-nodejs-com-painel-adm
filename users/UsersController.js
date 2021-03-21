@@ -39,4 +39,47 @@ router.post('/users/save', (req, res) => {
 
 });
 
+router.get('/authenticate/login', (req, res) => {
+
+   res.render('admin/users/login');
+});
+
+router.get('/authenticate/logout', (req, res) => {
+
+   req.session.user = undefined;
+
+   res.redirect('/');
+});
+
+router.post('/authenticate', (req, res) => {
+   var email = req.body.email;
+   var password = req.body.password;
+
+   User.findOne({
+      where: {
+         email: email
+      }
+   }).then((user) => {
+
+      if(user != undefined) {
+         var correct = bcrypt.compareSync(password, user.password);
+
+         if(correct) {
+            req.session.user = {
+               id: user.id,
+               email: user.email,
+            };
+
+            res.redirect('/admin/articles');
+         } else {
+            res.redirect('/authenticate/login');
+         }
+      } else {
+         res.redirect('/authenticate/login');
+      }
+   }).catch((err) => {
+      res.redirect('/authenticate/login');
+   });
+});
+
 module.exports = router;
