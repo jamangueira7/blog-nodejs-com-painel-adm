@@ -15,17 +15,26 @@ router.post('/users/save', (req, res) => {
    var email = req.body.email;
    var password = req.body.password;
 
-   var salt = bcrypt.genSaltSync(10);
-   var hash = bcrypt.hashSync(password, salt);
+   User.findOne({ where: { email: email }})
+       .then((user) => {
+          console.log(user)
+          if(user != undefined) {
+             res.redirect('/admin/users/new');
+          } else {
+             var salt = bcrypt.genSaltSync(10);
+             var hash = bcrypt.hashSync(password, salt);
 
-   User.create({
-      email,
-      password: hash
-   }).then(() => {
-      res.redirect('/');
-   }).catch((err) => {
-      res.redirect('/');
-   });
+             User.create({
+                email,
+                password: hash
+             }).then(() => {
+                res.redirect('/');
+             }).catch((err) => {
+                res.redirect('/');
+             });
+          }
+      });
+
 });
 
 module.exports = router;
