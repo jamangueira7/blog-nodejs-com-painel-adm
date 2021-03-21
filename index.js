@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
         limit: 4
     }).then((articles) => {
         Category.findAll().then((categories) => {
-            res.render('index', { articles, categories });
+            res.render('index', { articles, categories, user: req.session.user });
         });
     });
 });
